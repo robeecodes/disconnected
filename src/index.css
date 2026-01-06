@@ -1,0 +1,42 @@
+@import url(https://fonts.bunny.net/css?family=genos:300);
+
+:root {
+    --fs-sm: clamp(0.8rem, 0.25vi + 0.74rem, 0.94rem);
+    --fs-base: clamp(1rem, 0.45vi + 0.89rem, 1.25rem);
+    --fs-md: clamp(1.25rem, 0.76vi + 1.06rem, 1.67rem);
+    --fs-lg: clamp(1.56rem, 1.2vi + 1.26rem, 2.22rem);
+    --fs-xl: clamp(1.95rem, 1.83vi + 1.5rem, 2.96rem);
+    --fs-xxl: clamp(2.44rem, 2.74vi + 1.76rem, 3.95rem);
+    --fs-xxxl: clamp(3.05rem, 4.02vi + 2.05rem, 5.26rem);
+    --fs-xxxxl: clamp(3.81rem, 5.81vi + 2.36rem, 7.01rem);
+    --fs-xxxxxl: clamp(4.77rem, 8.33vi + 2.69rem, 9.35rem);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+p {
+    line-height: calc(1ex / 0.32);
+    margin: calc(1ex / 0.32) 0;
+}
+
+button {
+    cursor: pointer;
+
+    &:disabled {
+        cursor: initial;
+    }
+}
+
+@supports (font-size-adjust: 1;) {
+    html {
+        font-size-adjust: 0.5;
+    }
+}
