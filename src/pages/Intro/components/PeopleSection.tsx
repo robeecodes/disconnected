@@ -2,10 +2,65 @@ import styled from "@emotion/styled";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ReactHtmlParser from "react-html-parser";
 
 export const PeopleSection = () => {
+  const [currentInfo, setCurrentInfo] = useState(0);
   const container = useRef(null);
+  const peopleRefs = useRef([]);
+
+  const info = [
+    `<p> Social Media makes it easier than ever to connect with others! In this
+      digital age, family, friends and even strangers are just a
+      <abbr title="Direct Message">DM</abbr> away...</p>
+      <p>So, why is it that 56% of adults struggle with loneliness?</p>
+      `,
+    `<p>Among these adults, 16-24 year-olds are the most affected, despite being some of the biggest social media users.</p>`,
+  ];
+
+  const people = [
+    {
+      left: "10%",
+      top: "10%",
+    },
+    {
+      left: "15%",
+      top: "30%",
+    },
+    {
+      left: "30%",
+      top: "25%",
+    },
+    {
+      left: "20%",
+      top: "50%",
+    },
+    {
+      left: "60%",
+      top: "60%",
+    },
+    {
+      left: "70%",
+      top: "30%",
+    },
+    {
+      left: "80%",
+      top: "70%",
+    },
+    {
+      left: "50%",
+      top: "40%",
+    },
+    {
+      left: "90%",
+      top: "80%",
+    },
+    {
+      left: "75%",
+      top: "40%",
+    },
+  ];
 
   useGSAP(
     () => {
@@ -22,26 +77,44 @@ export const PeopleSection = () => {
     { scope: container },
   );
 
+  const { contextSafe } = useGSAP({ scope: container });
+
+  const updateInfo = contextSafe(() => {
+    if (currentInfo == 0) {
+      const tl = gsap.timeline();
+      tl.to("#infoBox", {
+        duration: 1,
+        autoAlpha: 0,
+        onComplete: () => {
+          setCurrentInfo(1);
+        },
+      });
+      console.log(peopleRefs);
+      tl.to(peopleRefs.current[2], { duration: 0.5, autoAlpha: 0 });
+      tl.to(peopleRefs.current[4], { duration: 0.5, autoAlpha: 0 });
+      tl.to(peopleRefs.current[6], { duration: 0.5, autoAlpha: 0 });
+      tl.to(peopleRefs.current[8], { duration: 0.5, autoAlpha: 0 });
+
+      tl.to("#infoBox", { duration: 1, autoAlpha: 1 });
+    }
+  });
+
   return (
     <Section id="people" ref={container}>
-      <Person left="10%" top="10%" disabled></Person>
-      <Person left="15%" top="30%" disabled></Person>
-      <Person left="30%" top="25%" disabled></Person>
-      <Person left="20%" top="50%" disabled></Person>
-      <Person left="60%" top="60%" disabled></Person>
-      <Person left="70%" top="30%" disabled></Person>
-      <Person left="80%" top="70%" disabled></Person>
-      <Person left="50%" top="40%" disabled></Person>
-      <Person left="90%" top="80%" disabled></Person>
-      <Person left="75%" top="40%" disabled></Person>
+      {people.map((item, index) => (
+        <Person
+          key={index}
+          left={item.left}
+          top={item.top}
+          disabled
+          ref={(el) => {
+            peopleRefs.current[index] = el;
+          }}
+        ></Person>
+      ))}
       <InfoBox id="infoBox">
-        <p>
-          Social Media makes it easier than ever to connect with others! In this
-          digital age, family, friends and even strangers are just a{" "}
-          <abbr title="Direct Message">DM</abbr> away...
-        </p>
-        <p>So, why is it that 56% of adults struggle with loneliness?</p>
-        <button>&rarr;</button>
+        {ReactHtmlParser(info[currentInfo])}
+        <button onClick={updateInfo}>&rarr;</button>
       </InfoBox>
     </Section>
   );
