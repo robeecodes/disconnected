@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 export const animateThroughUpdatedInfo = (
   currentInfo: number,
   setCurrentInfo: React.Dispatch<React.SetStateAction<number>>,

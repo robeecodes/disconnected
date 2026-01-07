@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 export const animateInInfoBox = () => {
   gsap.set("#infoBox", {
     autoAlpha: 0,
