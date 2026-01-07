@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
@@ -9,11 +10,11 @@ export const TitleSection = () => {
   const container = useRef(null);
 
   // TODO: FIGURE OUT WHY THIS DON'T WORK???
-  // const { contextSafe } = useGSAP({ scope: container });
+  const { contextSafe } = useGSAP({ scope: container });
 
-  // const scrollToNextSection = contextSafe(() => {
-  //   gsap.to(window, { duration: 2, scrollTo: 500 });
-  // });
+  const scrollToNextSection = contextSafe(() => {
+    gsap.to(window, { duration: 2, scrollTo: "#people" });
+  });
 
   useGSAP(
     () => {
@@ -26,7 +27,7 @@ export const TitleSection = () => {
     <Section ref={container}>
       <header>
         <h1>conn/ected</h1>
-        <Button /*onClick={scrollToNextSection}*/>&darr;</Button>
+        <Button onClick={scrollToNextSection}>&darr;</Button>
       </header>
     </Section>
   );
@@ -54,7 +55,10 @@ const Section = styled.section`
     & h1,
     & div {
       font-size: var(--fs-xxxxxl);
-      font-family: "Genos", sans-serif;
+      font-family:
+        "Genos", Ubuntu, Montserrat, Corbel, "URW Gothic", source-sans-pro,
+        sans-serif;
+      font-weight: 300;
       text-align: center;
     }
   }

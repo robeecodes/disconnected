@@ -15,10 +15,10 @@ export const animateThroughUpdatedInfo = (
       },
     });
 
-    tl.to(peopleRefs.current[2], { duration: 0.5, autoAlpha: 0 });
-    tl.to(peopleRefs.current[4], { duration: 0.5, autoAlpha: 0 });
-    tl.to(peopleRefs.current[6], { duration: 0.5, autoAlpha: 0 });
-    tl.to(peopleRefs.current[8], { duration: 0.5, autoAlpha: 0 });
+    tl.to(peopleRefs.current[2], { duration: 0.75, autoAlpha: 0 });
+    tl.to(peopleRefs.current[4], { duration: 0.75, autoAlpha: 0 });
+    tl.to(peopleRefs.current[6], { duration: 0.75, autoAlpha: 0 });
+    tl.to(peopleRefs.current[8], { duration: 0.75, autoAlpha: 0 });
 
     tl.to("#infoBox", { duration: 1, autoAlpha: 1 });
   }
