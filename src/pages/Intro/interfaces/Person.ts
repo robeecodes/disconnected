@@ -1,4 +1,7 @@
 export interface Person {
   left: string;
-  top: string;
+  bottom: string;
+  img: string;
+  name: string;
+  width: string;
 }

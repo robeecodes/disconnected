@@ -9,11 +9,10 @@ import animateTitle from "../animations/animateTitle";
 export const TitleSection = () => {
   const container = useRef(null);
 
-  // TODO: FIGURE OUT WHY THIS DON'T WORK???
   const { contextSafe } = useGSAP({ scope: container });
 
   const scrollToNextSection = contextSafe(() => {
-    gsap.to(window, { duration: 2, scrollTo: "#people" });
+    gsap.to(window, { duration: 3, scrollTo: "#people" });
   });
 
   useGSAP(
@@ -34,6 +33,8 @@ export const TitleSection = () => {
 };
 
 const Section = styled.section`
+  background-color: #b5dcde;
+
   width: 100svw;
   height: 100svh;
 
@@ -55,9 +56,7 @@ const Section = styled.section`
     & h1,
     & div {
       font-size: var(--fs-xxxxxl);
-      font-family:
-        "Genos", Ubuntu, Montserrat, Corbel, "URW Gothic", source-sans-pro,
-        sans-serif;
+      font-family: "Genos", Ubuntu, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
       font-weight: 300;
       text-align: center;
     }
@@ -73,7 +72,7 @@ const Button = styled.button({
 
   fontSize: "var(--fs-md)",
 
-  backgroundColor: "white",
+  backgroundColor: "#b5dcde",
 
   transition: "all .2s",
 

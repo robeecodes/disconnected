@@ -47,7 +47,7 @@ export default function animateTitle() {
   tl.to("button", { autoAlpha: 0 }, 0);
 
   // Then split up the title
-  tl.to(leftSplit, { y: "-150%" }, 0.5);
-  tl.to(rightSplit, { y: "-50%" }, 0.5);
-  tl.to(split.chars[4], { y: "-200%" }, 0.5);
+  tl.to(leftSplit, { y: "-150%" }, 1);
+  tl.to(rightSplit, { y: "-50%" }, 1);
+  tl.to(split.chars[4], { y: "-200%" }, 1);
 }

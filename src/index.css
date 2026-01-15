@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=genos:300);
+@import url(https://fonts.bunny.net/css?family=cabin:400,700|leckerli-one:400|genos:300);
 
 :root {
     --fs-sm: clamp(0.8rem, 0.25vi + 0.74rem, 0.94rem);
@@ -10,6 +10,8 @@
     --fs-xxxl: clamp(3.05rem, 4.02vi + 2.05rem, 5.26rem);
     --fs-xxxxl: clamp(3.81rem, 5.81vi + 2.36rem, 7.01rem);
     --fs-xxxxxl: clamp(4.77rem, 8.33vi + 2.69rem, 9.35rem);
+
+    --font-dark: #202737;
 }
 
 * {
@@ -19,15 +21,24 @@
 }
 
 html {
-    font-family:
-        Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
-        source-sans-pro, sans-serif;
+    font-family: "Cabin", "Seravek", "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
     font-weight: normal;
+    color: var(--font-dark);
 }
 
 p {
     line-height: calc(1ex / 0.32);
-    margin: calc(1ex / 0.32) 0;
+    margin-bottom: calc(1ex / 0.32);
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+blockquote {
+    font-family: "Leckerli One", handwriting;
+    font-size: var(--fs-sm);
+    text-align: center;
 }
 
 button {
@@ -38,7 +49,7 @@ button {
     }
 }
 
-@supports (font-size-adjust: 1;) {
+@supports (font-size-adjust: 1) {
     html {
         font-size-adjust: 0.5;
     }

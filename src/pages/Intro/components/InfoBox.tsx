@@ -15,12 +15,16 @@ export const InfoBox = styled.div({
   width: "70svw",
   maxWidth: "100ch",
 
-  backgroundColor: "hsla(0, 0%, 0%, 0.9)",
-  backdropFilter: "blur(2px)",
+  borderTopLeftRadius: "155px 15px",
+  borderTopRightRadius: "15px 125px",
+  borderBottomRightRadius: "125px 15px",
+  borderBottomLeftRadius: "15px 155px",
+
+  border: "1rem solid var(--font-dark)",
+
+  backgroundColor: "white",
 
   [`p`]: {
-    color: "white",
-
     fontSize: "var(--fs-md)",
   },
 
@@ -30,9 +34,8 @@ export const InfoBox = styled.div({
 
     alignSelf: "end",
 
-    fontSize: "var(--fs-xl)",
-
-    color: "white",
+    color: "var(--font-dark)",
+    fontSize: "var(--fs-lg)",
 
     transition: "all .2s",
 
