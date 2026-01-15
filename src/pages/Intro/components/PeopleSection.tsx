@@ -54,6 +54,8 @@ export const PeopleSection = () => {
           left={item.left}
           bottom={item.bottom}
           width={item.width}
+          img={item.img}
+          name={item.name}
           disabled
           ref={(el) => {
             peopleRefs.current[index] = el;
