@@ -1,0 +1,89 @@
+import styled from "@emotion/styled";
+
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
+
+import { useRef } from "react";
+
+import animateTitle from "../animations/animateTitle";
+
+export const TitleSection = () => {
+  const container = useRef(null);
+
+  const { contextSafe } = useGSAP({ scope: container });
+
+  const scrollToNextSection = contextSafe(() => {
+    gsap.to(window, { duration: 3, scrollTo: "#people" });
+  });
+
+  useGSAP(
+    () => {
+      animateTitle();
+    },
+    { scope: container },
+  );
+
+  return (
+    <Section ref={container}>
+      <header>
+        <h1>conn/ected</h1>
+        <Button onClick={scrollToNextSection}>&darr;</Button>
+      </header>
+    </Section>
+  );
+};
+
+const Section = styled.section`
+  background-color: #b5dcde;
+
+  width: 100svw;
+  height: 100svh;
+
+  position: relative;
+
+  overflow-y: auto;
+  & header {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 100svh;
+    width: 100svw;
+
+    transform-origin: center center;
+
+    & h1,
+    & div {
+      font-size: var(--fs-xxxxxl);
+      font-family: "Genos", Ubuntu, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+`;
+
+const Button = styled.button({
+  aspectRatio: 1 / 1.5,
+  width: "2rem",
+
+  borderRadius: "1rem",
+  border: "2px solid black",
+
+  fontSize: "var(--fs-md)",
+
+  backgroundColor: "#b5dcde",
+
+  transition: "all .2s",
+
+  [`:hover`]: {
+    backgroundColor: "black",
+    color: "white",
+  },
+});
+
+export default TitleSection;

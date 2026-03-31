@@ -1,15 +1,60 @@
-@import "tailwindcss";
+@import url(https://fonts.bunny.net/css?family=cabin:400,700|gamja-flower:400|genos:300);
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+:root {
+    --fs-sm: clamp(0.8rem, 0.25vi + 0.74rem, 0.94rem);
+    --fs-base: clamp(1rem, 0.45vi + 0.89rem, 1.25rem);
+    --fs-md: clamp(1.25rem, 0.76vi + 1.06rem, 1.67rem);
+    --fs-lg: clamp(1.56rem, 1.2vi + 1.26rem, 2.22rem);
+    --fs-xl: clamp(1.95rem, 1.83vi + 1.5rem, 2.96rem);
+    --fs-xxl: clamp(2.44rem, 2.74vi + 1.76rem, 3.95rem);
+    --fs-xxxl: clamp(3.05rem, 4.02vi + 2.05rem, 5.26rem);
+    --fs-xxxxl: clamp(3.81rem, 5.81vi + 2.36rem, 7.01rem);
+    --fs-xxxxxl: clamp(4.77rem, 8.33vi + 2.69rem, 9.35rem);
+
+    --font-dark: #202737;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+html {
+    font-family: "Cabin", "Seravek", "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+    font-weight: normal;
+    color: var(--font-dark);
+}
+
+p {
+    font-size: var(--fs-base);
+
+    line-height: calc(1ex / 0.32);
+    margin-bottom: calc(1ex / 0.32);
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+blockquote {
+    font-family: "Gamja Flower", handwriting;
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
+button {
+    font-family: "Gamja Flower";
+    font-size: var(--fs-base);
+    cursor: pointer;
+
+    &:disabled {
+        cursor: initial;
+    }
+}
+
+@supports (font-size-adjust: 1) {
+    html {
+        font-size-adjust: 0.5;
+    }
 }
