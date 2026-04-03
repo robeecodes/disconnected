@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import type { Person } from "../../../globals/types/Person";
+import { Link } from "react-router";
 
-export const PersonButton = styled.button<Person>((props) => ({
+export const PersonButton = styled(Link)<Person>((props) => ({
   position: "absolute",
   backgroundColor: "transparent",
   border: "none",
@@ -10,7 +11,6 @@ export const PersonButton = styled.button<Person>((props) => ({
   right: props.right,
   bottom: props.bottom,
   height: props.height,
-  image: props.img,
   name: props.name,
   route: props.route,
 

@@ -7,9 +7,12 @@ import type { PanelType } from "../types/PanelType";
 import { Panel } from "./Panel";
 
 import { ButtonBox } from "./Box";
+import { useImagePrefetch } from "../hooks/useImagePrefetch";
 
 export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
+
+  useImagePrefetch(panels, currentPanelIndex);
 
   const navigate = useNavigate();
 

@@ -43,21 +43,22 @@ export const PeopleSection = () => {
       <img src="/assets/scenes/intro/background.avif" alt="Background" />
       {people.map((item, index) => (
         <PersonButton
-          disabled={currentInfo < info.length}
+          // disabled={currentInfo < info.length}
           key={item.name}
           left={item.left}
           right={item.right}
           bottom={item.bottom}
           height={item.height}
-          img={item.img}
+          imgsrc={item.imgsrc}
           name={item.name}
-          route={item.route}
+          to={item.route ?? ""}
           ref={(el) => {
             peopleRefs.current[index] = el;
           }}
-          onClick={() => item.route && navigate(item.route, { viewTransition: true })}
+          viewTransition
+          prefetch="render"
         >
-          <img src={item.img} alt={item.name} />
+          <img src={item.imgsrc} alt={item.name} />
         </PersonButton>
       ))}
       <InfoBox updateInfo={updateInfo} id="infoBox">

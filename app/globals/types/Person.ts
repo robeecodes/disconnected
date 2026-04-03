@@ -3,7 +3,7 @@ export type Person = {
   right: string;
   bottom: string;
   height: string;
-  img: string;
+  imgsrc: string;
   name: string;
-  route: string | null;
+  route?: string;
 };

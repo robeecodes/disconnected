@@ -52,7 +52,7 @@ export const panels: Record<string, PanelType> = {
   },
   "panel-8-1": {
     panelBackground: "/assets/scenes/performing/background.avif",
-    panelForeground: "/assets/scenes/performing/panel-2.avif",
+    panelForeground: "/assets/scenes/performing/panel-1.avif",
     dialogue: "Eeeeeexactly! It's great!",
   },
   "panel-8-2": {
