@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+// import { FilterCam } from "./FilterCam";
 
 export const FilterActivity = ({ handleContinue }: { handleContinue: (panel: string) => void }) => {
   useGSAP(() => {
@@ -7,7 +8,12 @@ export const FilterActivity = ({ handleContinue }: { handleContinue: (panel: str
   });
   return (
     <>
-      <button style={{ position: "absolute", zIndex: 5, bottom: "25%" }} onClick={() => handleContinue("panel-6")}>
+      <button
+        style={{ position: "absolute", zIndex: 5, bottom: "25%" }}
+        onClick={() => {
+          handleContinue("panel-6");
+        }}
+      >
         Exit
       </button>
     </>

@@ -16,14 +16,15 @@ export const PersonButton = styled(Link)<Person>((props) => ({
 
   transition: "filter 0.3s ease-in-out",
 
-  "&:disabled": {
+  "&[data-disabled=true]": {
     cursor: "initial !important",
+    pointerEvents: "none",
   },
 
   "&:hover": {
     cursor: "pointer",
 
-    "&:not(:disabled)": {
+    "&[data-disabled=false]": {
       filter: "grayscale(0%) !important",
 
       img: {

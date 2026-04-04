@@ -2,6 +2,7 @@ import type { PanelType } from "../types/PanelType";
 import styled from "@emotion/styled";
 import { SpeechBubble } from "./SpeechBubble";
 import { OptionsBox } from "./OptionsBox";
+import { useEffect } from "react";
 
 export const Panel = ({
   panelBackground,
@@ -11,8 +12,16 @@ export const Panel = ({
   onOptionSelect,
   activity,
   handleContinue,
+  playSound,
 }: PanelType) => {
   const ActivityComponent = activity as React.ComponentType<any>;
+
+  useEffect(() => {
+    const sound = playSound ? new Audio(playSound) : undefined;
+    console.log(sound);
+    sound?.play();
+  }, []);
+
   return (
     <PanelStyles panelBackground={panelBackground} panelForeground={panelForeground}>
       {Array.isArray(panelForeground) ? (

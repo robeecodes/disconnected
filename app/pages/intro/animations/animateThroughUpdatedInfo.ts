@@ -4,7 +4,7 @@ import { info } from "../data/info";
 export const animateThroughUpdatedInfo = (
   currentInfo: number,
   setCurrentInfo: React.Dispatch<React.SetStateAction<number>>,
-  peopleRefs: React.RefObject<(HTMLButtonElement | null)[]>,
+  peopleRefs: React.RefObject<(HTMLAnchorElement | null)[]>,
 ) => {
   // Animation sequence for intro people (indices 0, 1, 4, 5, 8)
   const INTRO_ANIMATION_PEOPLE = [0, 1, 4, 5, 8];
@@ -56,6 +56,11 @@ export const animateThroughUpdatedInfo = (
       gsap.to("#people h2", {
         duration: 0.5,
         autoAlpha: 1,
+      });
+      peopleRefs.current.forEach((person) => {
+        if (person) {
+          person.setAttribute("data-disabled", "false");
+        }
       });
     }
 

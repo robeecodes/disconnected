@@ -17,7 +17,7 @@ import animateThroughUpdatedInfo from "../animations/animateThroughUpdatedInfo";
 export const PeopleSection = () => {
   const [currentInfo, setCurrentInfo] = useState(0);
   const container = useRef(null);
-  const peopleRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const peopleRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useGSAP(
     () => {
@@ -43,7 +43,7 @@ export const PeopleSection = () => {
       <img src="/assets/scenes/intro/background.avif" alt="Background" />
       {people.map((item, index) => (
         <PersonButton
-          // disabled={currentInfo < info.length}
+          data-disabled={currentInfo < info.length}
           key={item.name}
           left={item.left}
           right={item.right}
@@ -56,7 +56,7 @@ export const PeopleSection = () => {
             peopleRefs.current[index] = el;
           }}
           viewTransition
-          prefetch="render"
+          prefetch="viewport"
         >
           <img src={item.imgsrc} alt={item.name} />
         </PersonButton>

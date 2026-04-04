@@ -7,5 +7,6 @@ export type PanelType = {
   activity?: React.ComponentType<any>;
   nextPanel?: string;
   entryAnimation?: string;
+  playSound?: string;
   handleContinue?: () => void;
 };

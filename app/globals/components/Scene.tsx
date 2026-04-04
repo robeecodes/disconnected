@@ -12,11 +12,14 @@ import { useImagePrefetch } from "../hooks/useImagePrefetch";
 export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
 
+  const buttonSFX = new Audio("/assets/audio/page-flip.ogg");
+
   useImagePrefetch(panels, currentPanelIndex);
 
   const navigate = useNavigate();
 
   const handleContinue = (panelId?: string) => {
+    buttonSFX.play();
     if (panelId) {
       const index: number = Object.keys(panels).indexOf(panelId);
 
@@ -25,7 +28,7 @@ export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
       }
     } else {
       if (currentPanelIndex === Object.keys(panels).length - 1) {
-        navigate("/", { viewTransition: true });
+        navigate("/", { viewTransition: true, replace: true });
       } else {
         setCurrentPanelIndex((prev) => (prev + 1) % Object.keys(panels).length);
       }
@@ -48,6 +51,7 @@ export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
         options={panels[Object.keys(panels)[currentPanelIndex]].options}
         onOptionSelect={handleOptionSelect}
         activity={panels[Object.keys(panels)[currentPanelIndex]].activity}
+        playSound={panels[Object.keys(panels)[currentPanelIndex]].playSound}
         handleContinue={handleContinue}
       />
       {!panels[Object.keys(panels)[currentPanelIndex]].options &&

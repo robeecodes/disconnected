@@ -166,6 +166,20 @@ export const FilterCam = () => {
             width: "500px",
           }}
         />
+        {keypoints.length < 1 && (
+          <p
+            style={{
+              color: "white",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 10,
+            }}
+          >
+            Just a moment...
+          </p>
+        )}
         <LikeWidget id="like-widget" bpm={likeRate} />
       </CamSection>
     </FilterCamSection>

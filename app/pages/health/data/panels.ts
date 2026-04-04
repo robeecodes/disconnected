@@ -6,6 +6,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
     dialogue: "This is actually unbelievable!",
+    playSound: "/assets/audio/scenes/health/gasp.ogg",
   },
   "panel-2": {
     panelBackground: "/assets/scenes/health/background.avif",
