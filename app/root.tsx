@@ -1,12 +1,11 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { useState } from "react";
+import styled from "@emotion/styled";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 
-import "@mediapipe/face_mesh";
-import "@tensorflow/tfjs-core";
-import "@tensorflow/tfjs-backend-webgl";
-import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detection";
+import { GlobalContext } from "./contexts/GlobalContext";
 
 export const links: Route.LinksFunction = () => [];
 
@@ -28,8 +27,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+const SoundButton = styled.button({
+  position: "fixed",
+  top: "1rem",
+  left: "1rem",
+  padding: "0.5rem",
+  zIndex: 20,
+});
+
 export default function App() {
-  return <Outlet />;
+  const [globalState, setGlobalState] = useState({ audio: false });
+  return (
+    <GlobalContext.Provider value={{ globalState, setGlobalState }}>
+      <SoundButton onClick={() => setGlobalState((prev) => ({ ...prev, audio: !prev.audio }))}>
+        {globalState.audio ? "Mute" : "Unmute"}
+      </SoundButton>
+      <Outlet />
+    </GlobalContext.Provider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

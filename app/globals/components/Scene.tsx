@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useSound } from "../hooks/useSound";
+
 import styled from "@emotion/styled";
 
 import { useNavigate } from "react-router";
@@ -12,14 +14,14 @@ import { useImagePrefetch } from "../hooks/useImagePrefetch";
 export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
 
-  const buttonSFX = new Audio("/assets/audio/page-flip.ogg");
+  const buttonSFXRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/page-flip.ogg"));
+  useSound({ sound: buttonSFXRef.current, loop: false, stateToCheck: currentPanelIndex });
 
   useImagePrefetch(panels, currentPanelIndex);
 
   const navigate = useNavigate();
 
   const handleContinue = (panelId?: string) => {
-    buttonSFX.play();
     if (panelId) {
       const index: number = Object.keys(panels).indexOf(panelId);
 

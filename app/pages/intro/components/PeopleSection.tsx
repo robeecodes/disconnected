@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useNavigate } from "react-router";
 
 import { useGSAP } from "@gsap/react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 
 import { gsap } from "gsap";
 
@@ -13,8 +13,10 @@ import info from "../data/info";
 import InfoBox from "./InfoBox";
 import animateInInfoBox from "../animations/animateInInfoBox";
 import animateThroughUpdatedInfo from "../animations/animateThroughUpdatedInfo";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
 export const PeopleSection = () => {
+  const { globalState, setGlobalState } = useContext(GlobalContext);
   const [currentInfo, setCurrentInfo] = useState(0);
   const container = useRef(null);
   const peopleRefs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -32,7 +34,7 @@ export const PeopleSection = () => {
   const { contextSafe } = useGSAP({ scope: container });
 
   const updateInfo = contextSafe(() => {
-    animateThroughUpdatedInfo(currentInfo, setCurrentInfo, peopleRefs);
+    animateThroughUpdatedInfo(currentInfo, setCurrentInfo, peopleRefs, globalState);
   });
 
   const navigate = useNavigate();

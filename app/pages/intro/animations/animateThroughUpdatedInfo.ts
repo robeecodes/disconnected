@@ -1,10 +1,12 @@
 import { gsap } from "gsap";
+
 import { info } from "../data/info";
 
 export const animateThroughUpdatedInfo = (
   currentInfo: number,
   setCurrentInfo: React.Dispatch<React.SetStateAction<number>>,
   peopleRefs: React.RefObject<(HTMLAnchorElement | null)[]>,
+  globalState: {},
 ) => {
   // Animation sequence for intro people (indices 0, 1, 4, 5, 8)
   const INTRO_ANIMATION_PEOPLE = [0, 1, 4, 5, 8];
@@ -32,6 +34,12 @@ export const animateThroughUpdatedInfo = (
         duration: 0.25,
         autoAlpha: 0,
         delay: delay,
+        onStart: () => {
+          if (!globalState.audio) return;
+          const sound = new Audio("/assets/audio/scenes/intro/vanish.ogg");
+          sound.currentTime = 0;
+          sound.play();
+        },
         onComplete: () => {
           // Apply grayscale effect to the entire people section
           gsap.to("#people *:not(h2):not(#infoBox):not(#infoBox *)", {

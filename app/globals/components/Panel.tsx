@@ -2,7 +2,8 @@ import type { PanelType } from "../types/PanelType";
 import styled from "@emotion/styled";
 import { SpeechBubble } from "./SpeechBubble";
 import { OptionsBox } from "./OptionsBox";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSound } from "../hooks/useSound";
 
 export const Panel = ({
   panelBackground,
@@ -15,12 +16,16 @@ export const Panel = ({
   playSound,
 }: PanelType) => {
   const ActivityComponent = activity as React.ComponentType<any>;
+  const [sound, setSound] = useState<HTMLAudioElement | undefined>();
+
+  useSound({ sound: sound, stateToCheck: sound, loop: false });
 
   useEffect(() => {
-    const sound = playSound ? new Audio(playSound) : undefined;
-    console.log(sound);
-    sound?.play();
-  }, []);
+    if (playSound) {
+      const audio = new Audio(playSound);
+      setSound(audio);
+    }
+  }, [playSound]);
 
   return (
     <PanelStyles panelBackground={panelBackground} panelForeground={panelForeground}>
