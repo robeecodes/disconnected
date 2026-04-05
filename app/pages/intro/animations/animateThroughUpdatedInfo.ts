@@ -9,8 +9,9 @@ export const animateThroughUpdatedInfo = (
   globalState: {},
 ) => {
   // Animation sequence for intro people (indices 0, 1, 4, 5, 8)
-  const INTRO_ANIMATION_PEOPLE = [0, 1, 4, 5, 8];
+  const INTRO_ANIMATION_PEOPLE = [0, 3, 4, 7, 9];
   const PEOPLE_LENGTH = INTRO_ANIMATION_PEOPLE.length; // Number of people fading out
+  const vanishSound = new Audio("/assets/audio/scenes/intro/vanish.opus");
 
   if (currentInfo === 0) {
     // Create timeline for the intro animation sequence
@@ -36,7 +37,7 @@ export const animateThroughUpdatedInfo = (
         delay: delay,
         onStart: () => {
           if (!globalState.audio) return;
-          const sound = new Audio("/assets/audio/scenes/intro/vanish.ogg");
+          const sound = vanishSound.cloneNode(true);
           sound.currentTime = 0;
           sound.play();
         },

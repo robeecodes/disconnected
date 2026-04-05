@@ -5,7 +5,7 @@ import { panels } from "./data/panels";
 import { useSound } from "../../globals/hooks/useSound";
 
 export default function Health() {
-  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/health/background.ogg"));
+  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/health/background.opus"));
 
   useSound({ sound: bgmRef.current, loop: true });
 

@@ -6,7 +6,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
     dialogue: "This is actually unbelievable!",
-    playSound: "/assets/audio/scenes/health/gasp.ogg",
+    playSound: "/assets/audio/scenes/health/gasp.opus",
   },
   "panel-2": {
     panelBackground: "/assets/scenes/health/background.avif",
@@ -21,14 +21,14 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-3.avif",
     dialogue: "No, not even a little...",
-    playSound: "/assets/audio/scenes/health/no.ogg",
+    playSound: "/assets/audio/scenes/health/no.opus",
     nextPanel: "panel-4",
   },
   "panel-3-2": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-2.avif",
     dialogue: "How can you be so sure?",
-    playSound: "/assets/audio/scenes/health/what.ogg",
+    playSound: "/assets/audio/scenes/health/what.opus",
   },
   "panel-4": {
     panelBackground: "/assets/scenes/health/background.avif",
@@ -39,7 +39,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-2.avif",
     dialogue: "It's so bad, they're comparing it to smoking!",
-    playSound: "/assets/audio/scenes/health/really.ogg",
+    playSound: "/assets/audio/scenes/health/really.opus",
   },
   "panel-6": {
     panelBackground: "/assets/scenes/health/background.avif",
@@ -50,7 +50,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-2.avif",
     dialogue: "You'd think so, wouldn't you?",
-    playSound: "/assets/audio/scenes/health/no.ogg",
+    playSound: "/assets/audio/scenes/health/no.opus",
     nextPanel: "panel-8",
   },
   "panel-7-2": {
@@ -63,7 +63,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
     dialogue: "That's actually bang on! Well done, I think",
-    playSound: "/assets/audio/scenes/health/gasp.ogg",
+    playSound: "/assets/audio/scenes/health/gasp.opus",
     nextPanel: "panel-8",
   },
   "panel-7-4": {
@@ -76,14 +76,14 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-2.avif",
     dialogue: "You think it's a whole pack!? Don't even joke...",
-    playSound: "/assets/audio/scenes/health/what.ogg",
+    playSound: "/assets/audio/scenes/health/what.opus",
     nextPanel: "panel-8",
   },
   "panel-8": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
     dialogue: "Yeah, it's fifteen. Fifteen! Absurd...",
-    playSound: "/assets/audio/scenes/health/gasp.ogg",
+    playSound: "/assets/audio/scenes/health/gasp.opus",
   },
   "panel-9": {
     panelBackground: "/assets/scenes/health/background.avif",
@@ -98,8 +98,8 @@ export const panels: Record<string, PanelType> = {
   "panel-11": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
-    dialogue: "I mean, yeah. I smoke, but I know it's bad for me.",
-    playSound: "/assets/audio/scenes/health/really.ogg",
+    dialogue: "I mean, yeah. I smoke. But I know it's bad for me.",
+    playSound: "/assets/audio/scenes/health/really.opus",
   },
   "panel-12": {
     panelBackground: "/assets/scenes/health/background.avif",

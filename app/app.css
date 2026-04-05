@@ -58,3 +58,45 @@ button {
         font-size-adjust: 0.5;
     }
 }
+
+p:has(.tooltip) {
+    position: relative;
+}
+
+.tooltip {
+    text-decoration: underline dotted;
+
+    .tooltip-text {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: block;
+        white-space: pre-wrap;
+
+        min-width: 30ch;
+
+        max-width: 50svw;
+
+        background-color: var(--font-dark);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: var(--fs-sm);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s,
+            visibility 0.3s;
+
+        @media (max-width: 40em) {
+            max-width: 80svw;
+        }
+    }
+
+    &:hover .tooltip-text {
+        opacity: 1;
+        visibility: visible;
+    }
+}

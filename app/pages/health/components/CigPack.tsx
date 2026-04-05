@@ -29,7 +29,10 @@ export const CigPack = ({ cigCount }: { cigCount: number }) => {
 
     const yValue: number = parseFloat(String(gsap.getProperty(cig, "top")));
 
-    gsap.to(cig, { top: yValue - 25 * mod, duration: 1, ease: "power1.out" });
+    let tl = gsap.timeline();
+    tl.to(cigContainer.current, { y: -10, duration: 0.25, ease: "power1.out" });
+    tl.to(cigContainer.current, { y: 0, duration: 0.5, ease: "elastic" }, "box-land");
+    tl.to(cig, { top: yValue - 25 * mod, duration: 1, ease: "elastic" }, "box-land");
 
     currentCigCount.current = cigCount;
   }, [cigCount]);

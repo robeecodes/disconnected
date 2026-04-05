@@ -2,26 +2,34 @@ import styled from "@emotion/styled";
 import { Box } from "../../../globals/components/Box";
 
 const InfoStyledBox = styled(Box)({
+  position: "relative",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
+  justifyContent: "center",
   padding: "2rem",
   width: "50svw",
   aspectRatio: "16/9",
-});
 
-const InfoStyledButton = styled.button({
-  border: "none",
-  backgroundColor: "transparent",
-  alignSelf: "end",
-  color: "var(--font-dark)",
-  fontSize: "var(--fs-lg)",
-  transition: "all 0.2s",
-  "&:hover": {
-    transform: "scale(1.1, 1.1)",
+  "@media (max-width: 40em)": {
+    width: "80svw",
   },
-  "&:active": {
-    transform: "scale(0.9, 0.9)",
+
+  button: {
+    position: "absolute",
+    bottom: "1rem",
+    right: "1rem",
+
+    border: "none",
+    backgroundColor: "transparent",
+    color: "var(--font-dark)",
+    fontSize: "var(--fs-lg)",
+    transition: "all 0.2s",
+    "&:hover": {
+      transform: "scale(1.1, 1.1)",
+    },
+    "&:active": {
+      transform: "scale(0.9, 0.9)",
+    },
   },
 });
 
@@ -39,7 +47,7 @@ export const InfoBox = ({
   return (
     <InfoStyledBox id={id}>
       {children}
-      <InfoStyledButton onClick={updateInfo}>&rarr;</InfoStyledButton>
+      <button onClick={updateInfo}>&rarr;</button>
     </InfoStyledBox>
   );
 };

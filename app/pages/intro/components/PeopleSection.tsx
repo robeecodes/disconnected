@@ -83,6 +83,8 @@ const Section = styled.section({
   alignItems: "center",
   justifyContent: "center",
 
+  boxShadow: "inset 0px 8px 8px #e1e6f9",
+
   ["> *"]: {
     filter: "grayscale(0%)",
   },

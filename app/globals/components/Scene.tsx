@@ -14,7 +14,7 @@ import { useImagePrefetch } from "../hooks/useImagePrefetch";
 export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
 
-  const buttonSFXRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/page-flip.ogg"));
+  const buttonSFXRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/page-flip.opus"));
   useSound({ sound: buttonSFXRef.current, loop: false, stateToCheck: currentPanelIndex });
 
   useImagePrefetch(panels, currentPanelIndex);
@@ -67,6 +67,10 @@ export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
 };
 
 const ContinueButton = styled(ButtonBox)((props) => ({
+  position: "fixed",
+  bottom: "5%",
+  right: "10%",
+
   width: "min-content",
   fontFamily: "Gamja Flower",
   fontSize: "var(--fs-lg)",

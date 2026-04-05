@@ -34,9 +34,13 @@ const StyledBox = styled.div({
 });
 
 const StyledButtonBox = styled(StyledBox)((props) => ({
-  position: "fixed",
-  bottom: "5%",
-  right: "10%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  div: {
+    marginLeft: "1em",
+  },
 })).withComponent("button");
 
 export const Box = ({

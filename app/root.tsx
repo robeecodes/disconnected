@@ -6,6 +6,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 
 import { GlobalContext } from "./contexts/GlobalContext";
+import { ButtonBox } from "./globals/components/Box";
 
 export const links: Route.LinksFunction = () => [];
 
@@ -27,12 +28,37 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-const SoundButton = styled.button({
+const SoundButton = styled(ButtonBox)({
   position: "fixed",
   top: "1rem",
   left: "1rem",
-  padding: "0.5rem",
   zIndex: 20,
+
+  padding: ".5em",
+
+  fontFamily: "Gamja Flower",
+  fontSize: "var(--fs-md)",
+
+  background: "none",
+  border: "none",
+  color: "var(--font-dark)",
+
+  div: {
+    marginLeft: "-1.2em",
+    marginTop: "-1.2em",
+  },
+
+  img: {
+    transition: "transform 0.3s ease",
+  },
+
+  ":hover": {
+    img: {
+      ":last-of-type": {
+        transform: "translate(.25rem, .25rem)",
+      },
+    },
+  },
 });
 
 export default function App() {

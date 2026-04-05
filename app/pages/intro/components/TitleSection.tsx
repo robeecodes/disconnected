@@ -37,7 +37,7 @@ export const TitleSection = () => {
 };
 
 const Section = styled.section`
-  background-color: #b5dcde;
+  background-color: #e1e6f9;
 
   width: 100svw;
   height: 100svh;
@@ -76,7 +76,7 @@ const Button = styled.button({
 
   fontSize: "var(--fs-md)",
 
-  backgroundColor: "#b5dcde",
+  backgroundColor: "#e1e6f9",
 
   transition: "all .2s",
 

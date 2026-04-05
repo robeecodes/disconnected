@@ -2,17 +2,9 @@ import type { Person } from "../../../globals/types/Person";
 
 export const people: Person[] = [
   {
-    left: "initial",
-    right: "5%",
-    bottom: "5%",
-    height: "20rem",
-    imgsrc: "/assets/scenes/intro/people/beanie.avif",
-    name: "Character wearing a beanie",
-  },
-  {
     left: "0",
     right: "initial",
-    bottom: "40%",
+    bottom: "28%",
     height: "16rem",
     imgsrc: "/assets/scenes/intro/people/benched.avif",
     name: "Character sitting on a bench",
@@ -20,7 +12,7 @@ export const people: Person[] = [
   {
     left: "initial",
     right: "0",
-    bottom: "42%",
+    bottom: "28%",
     height: "16rem",
     imgsrc: "/assets/scenes/intro/people/selfie.avif",
     name: "Character taking a selfie on a bench",
@@ -29,15 +21,15 @@ export const people: Person[] = [
   {
     left: "initial",
     right: "32%",
-    bottom: "44%",
+    bottom: "28%",
     height: "16rem",
     imgsrc: "/assets/scenes/intro/people/hijabi.avif",
     name: "Character wearing a hijab",
   },
   {
-    left: "35%",
+    left: "40%",
     right: "initial",
-    bottom: "42%",
+    bottom: "28%",
     height: "18rem",
     imgsrc: "/assets/scenes/intro/people/influencer.avif",
     name: "Character video calling",
@@ -45,7 +37,7 @@ export const people: Person[] = [
   {
     left: "26%",
     right: "initial",
-    bottom: "35%",
+    bottom: "24%",
     height: "14rem",
     imgsrc: "/assets/scenes/intro/people/sitting.avif",
     name: "Character sitting on the grass",
@@ -71,18 +63,27 @@ export const people: Person[] = [
   {
     left: "initial",
     right: "20%",
-    bottom: "22%",
+    bottom: "11%",
     height: "18rem",
     imgsrc: "/assets/scenes/intro/people/walker.avif",
     name: "Character walking",
   },
   {
-    left: "51%",
+    left: "45%",
     right: "initial",
-    bottom: "3%",
+    bottom: "1%",
     height: "18rem",
     imgsrc: "/assets/scenes/intro/people/worried.avif",
     name: "Character worried",
+  },
+
+  {
+    left: "initial",
+    right: "5%",
+    bottom: "5%",
+    height: "20rem",
+    imgsrc: "/assets/scenes/intro/people/beanie.avif",
+    name: "Character wearing a beanie",
   },
 ];
 

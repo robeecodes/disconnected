@@ -8,7 +8,7 @@ import { useSound } from "~/globals/hooks/useSound";
 function Intro() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
 
-  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/intro/background.ogg"));
+  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/intro/background.opus"));
 
   useSound({ sound: bgmRef.current, loop: true });
 
