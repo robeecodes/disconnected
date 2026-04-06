@@ -17,7 +17,7 @@ export default function Health() {
 
   return (
     <>
-      <Scene panels={panels} />
+      <Scene panels={panels} storyId={6} />
     </>
   );
 }

@@ -82,7 +82,7 @@ export const panels: Record<string, PanelType> = {
   "panel-8": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
-    dialogue: "Yeah, it's fifteen. Fifteen! Absurd...",
+    dialogue: "Yeah, it's fifteen. <span class='wide'>Fifteen!</span> <small>Absurd...</small>",
     playSound: "/assets/audio/scenes/health/gasp.opus",
   },
   "panel-9": {
@@ -102,6 +102,11 @@ export const panels: Record<string, PanelType> = {
     playSound: "/assets/audio/scenes/health/really.opus",
   },
   "panel-12": {
+    panelBackground: "/assets/scenes/health/background.avif",
+    panelForeground: "/assets/scenes/health/panel 1-3.avif",
+    dialogue: "It's upsetting to think loneliness is... Even comparable...",
+  },
+  "panel-13": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
     dialogue: "Well, I need to get back to work, but I just... Yeah... How surprising!",

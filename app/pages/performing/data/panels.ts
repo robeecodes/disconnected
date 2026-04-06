@@ -20,11 +20,13 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-4.avif",
     dialogue: "That's a bit rude, do you mind?",
+    playSound: "/assets/audio/scenes/performing/groan.opus",
   },
   "panel-3": {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-2.avif",
     dialogue: "Actually, wait! Wait, wait, this is really cool... Check this out!",
+    playSound: "/assets/audio/scenes/performing/wait.opus",
   },
   "panel-4": {
     panelBackground: "/assets/scenes/performing/background.avif",
@@ -59,11 +61,13 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-2.avif",
     dialogue: "Yep, I'm quite the actor; very popular!",
+    playSound: "/assets/audio/scenes/performing/yeah.opus",
   },
   "panel-9": {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-4.avif",
     dialogue: "Although... I worry a lot. Like, what if I wear or say the wrong thing?",
+    playSound: "/assets/audio/scenes/performing/embarrassed.opus",
   },
   "panel-10": {
     panelBackground: "/assets/scenes/performing/background.avif",
@@ -78,6 +82,7 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-4.avif",
     dialogue: "Absolutely not! They might not like that, or something...",
+    playSound: "/assets/audio/scenes/performing/groan.opus",
   },
   "panel-11": {
     panelBackground: "/assets/scenes/performing/background.avif",
@@ -93,5 +98,6 @@ export const panels: Record<string, PanelType> = {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-4.avif",
     dialogue: "Well! Anyway, like I said, I’m busy right now, do you mind?",
+    playSound: "/assets/audio/scenes/performing/embarrassed.opus",
   },
 };

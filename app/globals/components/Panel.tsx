@@ -38,7 +38,7 @@ export const Panel = ({
       ) : (
         <img src={panelForeground} alt="foreground" />
       )}
-      {dialogue && <SpeechBubble id="bubble">{dialogue}</SpeechBubble>}
+      {dialogue && <SpeechBubble id="bubble" dialogue={dialogue}></SpeechBubble>}
       {options && (
         <OptionsBox onOptionSelect={onOptionSelect} options={options}>
           <h2>Make a choice...</h2>

@@ -1,87 +1,37 @@
-# Welcome to React Router!
+# Disconnected
 
-A modern, production-ready template for building full-stack React applications using React Router.
+_Disconnected_ is a web-based interactive storytelling experience designed to help explore how affect, storytelling and interactivity can be used to enhance data communication.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Asset References
 
-## Features
+References for any third party assets used. For each asset the format is as follows:
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+**File name in project** | Reference
 
-## Getting Started
+### Audio
 
-### Installation
+- **public/assets/audio/**
+  - **page-flip.opus** |Makigai_MaiMai (2024) *Paper. Pixabay* [download] [Accessed 06 April 2026].
 
-Install the dependencies:
+- **public/assets/audio/scenes/abuse/**
+  - **background.opus** | HarumachiMusic (2025) *Tears of a Mermaid. Pixabay* [download] [Accessed 06 April 2026].
+  - **sigh.opus** | DRAGON-STUDIO (2025) *Female Sigh. Pixabay* [download] [Accessed 06 April 2026].
+- **public/assets/audio/scenes/health/**
+  - **background.opus** | HarumachiMusic (2023) *ordinary (loop) -minimal piano. Pixabay* [download] [Accessed 06 April 2026].
+  - **gasp.opus** | jacqtydus (2025) *Gasp. Pixabay* [download] [Accessed 06 April 2026].
+  - **no.opus** | Kuzu420 (2024) *No / nope. Pixabay* [download] [Accessed 06 April 2026].
+  - **really.opus** | PoorArtistt (2025) *really?! - (no copyright) sound effect. Pixabay* [download] [Accessed 06 April 2026].
+  - **what.opus** | Alivvie (Freesound) (2022) *confused what?. Pixabay* [download] [Accessed 06 April 2026].
 
-```bash
-npm install
-```
+- **public/assets/audio/scenes/intro/**
 
-### Development
+  - **background.opus** | mfma_sonic (Freesound) (2022) *Outside ambience with birds. Pixabay* [download] [Accessed 06 April 2026].
 
-Start the development server with HMR:
+  - **vanish.opus** | Freesound Community (2022) *062726_Analog synth bass. Pixabay* [download] [Accessed 06 April 2026].
 
-```bash
-npm run dev
-```
+- **public/assets/audio/scenes/performing/**
 
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+  - **embarrassed.opus** | khenshom (Freesound) (2022) *Male voice and sounds trying to explain himself unsure embarrassed. Pixabay* [download] [Accessed 06 April 2026].
+  - **groan.opus** | seachangeau (Freesound) (2022) *groan by adam. Pixabay* [download] [Accessed 06 April 2026].
+  - **wait.opus** | Rizzo312 (2024) *Wait what?. Pixabay* [download] [Accessed 06 April 2026].
+  - **yeah.opus** | Freesound Community (2022) *083725_Person Saying "Yeah!". Pixabay* [download] [Accessed 06 April 2026].

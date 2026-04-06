@@ -75,6 +75,7 @@ export const people: Person[] = [
     height: "18rem",
     imgsrc: "/assets/scenes/intro/people/worried.avif",
     name: "Character worried",
+    route: "/abuse",
   },
 
   {

@@ -4,6 +4,7 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 import PeopleSection from "./components/PeopleSection";
 import TitleSection from "./components/TitleSection";
 import { useSound } from "~/globals/hooks/useSound";
+import MainHub from "./components/MainHub";
 
 function Intro() {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -18,12 +19,16 @@ function Intro() {
     };
   }, [globalState]);
 
-  return (
-    <>
-      <TitleSection></TitleSection>
-      <PeopleSection></PeopleSection>
-    </>
-  );
+  if (!globalState.seenIntro) {
+    return (
+      <>
+        <TitleSection></TitleSection>
+        <PeopleSection></PeopleSection>
+      </>
+    );
+  }
+
+  return <MainHub />;
 }
 
 export default Intro;

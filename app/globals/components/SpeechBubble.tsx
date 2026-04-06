@@ -1,5 +1,15 @@
 import styled from "@emotion/styled";
 
+export const SpeechBubble = ({ dialogue, id }: { dialogue: string; id?: string }) => {
+  return (
+    <StyledSpeechBubble id={id}>
+      <div dangerouslySetInnerHTML={{ __html: dialogue }}></div>
+      <img src="/assets/components/speech-bubbleSVGs/speech-front.svg" role="presentation" />
+      <img src="/assets/components/speech-bubbleSVGs/speech-back.svg" role="presentation" />
+    </StyledSpeechBubble>
+  );
+};
+
 const StyledSpeechBubble = styled.div((props) => ({
   maxWidth: "35ch",
 
@@ -44,13 +54,3 @@ const StyledSpeechBubble = styled.div((props) => ({
     },
   },
 }));
-
-export const SpeechBubble = ({ children, id }: { children: React.ReactNode; id?: string }) => {
-  return (
-    <StyledSpeechBubble id={id}>
-      <div>{children}</div>
-      <img src="/assets/components/speech-bubbleSVGs/speech-front.svg" role="presentation" />
-      <img src="/assets/components/speech-bubbleSVGs/speech-back.svg" role="presentation" />
-    </StyledSpeechBubble>
-  );
-};

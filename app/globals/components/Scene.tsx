@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { useSound } from "../hooks/useSound";
 
 import styled from "@emotion/styled";
@@ -11,8 +11,11 @@ import { Panel } from "./Panel";
 import { ButtonBox } from "./Box";
 import { useImagePrefetch } from "../hooks/useImagePrefetch";
 
-export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
+import { GlobalContext } from "~/contexts/GlobalContext";
+
+export const Scene = ({ panels, storyId }: { panels: Record<string, PanelType>; storyId: number }) => {
   const [currentPanelIndex, setCurrentPanelIndex] = useState(0);
+  const { globalState, setGlobalState } = useContext(GlobalContext);
 
   const buttonSFXRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/page-flip.opus"));
   useSound({ sound: buttonSFXRef.current, loop: false, stateToCheck: currentPanelIndex });
@@ -30,6 +33,7 @@ export const Scene = ({ panels }: { panels: Record<string, PanelType> }) => {
       }
     } else {
       if (currentPanelIndex === Object.keys(panels).length - 1) {
+        setGlobalState((prev) => ({ ...prev, seenStories: [...prev.seenStories, storyId] }));
         navigate("/", { viewTransition: true, replace: true });
       } else {
         setCurrentPanelIndex((prev) => (prev + 1) % Object.keys(panels).length);

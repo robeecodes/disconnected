@@ -1,12 +1,10 @@
 import { Scene } from "~/globals/components/Scene";
 import { panels } from "./data/panels";
-import { ClmCam } from "./components/ClmCam";
 import { useSound } from "~/globals/hooks/useSound";
-
 import { useEffect, useRef } from "react";
 
-export default function Performing() {
-  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/performing/background.opus"));
+export default function Abuse() {
+  const bgmRef = useRef<HTMLAudioElement>(new Audio("/assets/audio/scenes/abuse/background.opus"));
 
   useSound({ sound: bgmRef.current, loop: true });
 
@@ -15,10 +13,10 @@ export default function Performing() {
       bgmRef.current.pause();
     };
   }, []);
+
   return (
     <>
-      <Scene panels={panels} storyId={1} />
-      <ClmCam />
+      <Scene panels={panels} storyId={8}></Scene>
     </>
   );
 }

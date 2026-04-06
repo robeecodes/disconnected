@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 
 import type { Route } from "./+types/root";
@@ -7,6 +7,7 @@ import "./app.css";
 
 import { GlobalContext } from "./contexts/GlobalContext";
 import { ButtonBox } from "./globals/components/Box";
+import { SourceList } from "./globals/components/SourceList";
 
 export const links: Route.LinksFunction = () => [];
 
@@ -28,13 +29,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-const SoundButton = styled(ButtonBox)({
+const ControlButton = styled(ButtonBox)((props) => ({
   position: "fixed",
   top: "1rem",
-  left: "1rem",
+  left: props.left ?? "initial",
+  right: props.right ?? "initial",
   zIndex: 20,
 
   padding: ".5em",
+
+  width: "min-content",
+  height: "min-content",
 
   fontFamily: "Gamja Flower",
   fontSize: "var(--fs-md)",
@@ -43,10 +48,10 @@ const SoundButton = styled(ButtonBox)({
   border: "none",
   color: "var(--font-dark)",
 
-  div: {
-    marginLeft: "-1.2em",
-    marginTop: "-1.2em",
-  },
+  // div: {
+  //   marginLeft: "-1.2em",
+  //   marginTop: "-1.2em",
+  // },
 
   img: {
     transition: "transform 0.3s ease",
@@ -59,15 +64,33 @@ const SoundButton = styled(ButtonBox)({
       },
     },
   },
-});
+}));
 
 export default function App() {
-  const [globalState, setGlobalState] = useState({ audio: false });
+  const [globalState, setGlobalState] = useState({ audio: false, seenIntro: false, seenStories: [] });
+  const [showSources, setShowSources] = useState(false);
+  const sourcesRef = useRef<HTMLDivElement>(null);
+
+  const SourceListToggle = () => {
+    return (
+      <ControlButton right="1rem" onClick={() => setShowSources((prev) => !prev)}>
+        Sources
+      </ControlButton>
+    );
+  };
+
+  useEffect(() => {
+    sourcesRef.current!.style.display = showSources ? "block" : "none";
+    document.body.style.overflow = showSources ? "hidden" : "auto";
+  }, [showSources]);
+
   return (
     <GlobalContext.Provider value={{ globalState, setGlobalState }}>
-      <SoundButton onClick={() => setGlobalState((prev) => ({ ...prev, audio: !prev.audio }))}>
+      <SourceList id="sources" ref={sourcesRef} toggleSourceList={() => setShowSources((prev) => !prev)} />
+      <ControlButton left="1rem" onClick={() => setGlobalState((prev) => ({ ...prev, audio: !prev.audio }))}>
         {globalState.audio ? "Mute" : "Unmute"}
-      </SoundButton>
+      </ControlButton>
+      <SourceListToggle />
       <Outlet />
     </GlobalContext.Provider>
   );

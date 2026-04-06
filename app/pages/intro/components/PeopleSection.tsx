@@ -37,8 +37,6 @@ export const PeopleSection = () => {
     animateThroughUpdatedInfo(currentInfo, setCurrentInfo, peopleRefs, globalState);
   });
 
-  const navigate = useNavigate();
-
   return (
     <Section id="people" ref={container}>
       <h2>Click on the people to explore their stories...</h2>
@@ -59,6 +57,9 @@ export const PeopleSection = () => {
           }}
           viewTransition
           prefetch="viewport"
+          onClick={() => {
+            setGlobalState((prev) => ({ ...prev, seenIntro: true }));
+          }}
         >
           <img src={item.imgsrc} alt={item.name} />
         </PersonButton>
