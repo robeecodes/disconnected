@@ -21,29 +21,39 @@ export default function AbuseActivity({ handleContinue }: { handleContinue: () =
 
   return (
     <>
-      <AbuseActivityComponent>
+      <Section id="abuse-game">
         {view === gameViews.Gameplay && <Game onLoseLife={() => setLives(lives - 1)} currentLives={lives} />}
         {view === gameViews.Instructions && <Instructions playGame={() => setView(gameViews.Gameplay)} />}
         {view === gameViews.GameOver && <p>GAME OVER</p>}
-      </AbuseActivityComponent>
+      </Section>
     </>
   );
 }
 
-const AbuseActivityComponent = styled.div({
+const Section = styled.section({
   position: "fixed",
-  zIndex: 5,
 
-  width: "18rem",
-  height: "30rem",
+  height: "50svh",
+
+  aspectRatio: "9 / 16",
 
   top: "51%",
   left: "50%",
   transform: "translate(-50%, -50%)",
 
+  fontFamily: "'Gamja Flower', handwriting",
+
   canvas: {
     position: "absolute",
     top: 0,
     left: 0,
+  },
+
+  ol: {
+    listStylePosition: "inside",
+
+    li: {
+      marginBottom: "1em",
+    },
   },
 });

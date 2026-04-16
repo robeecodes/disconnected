@@ -34,12 +34,32 @@ const StyledBox = styled.div({
 });
 
 const StyledButtonBox = styled(StyledBox)((props) => ({
+  position: "fixed",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
 
-  div: {
-    marginLeft: "1em",
+  left: props.left ?? "initial",
+  right: props.right ?? "initial",
+  bottom: props.bottom ?? "initial",
+  top: props.top ?? "initial",
+
+  zIndex: 20,
+
+  padding: props.padding ?? ".5em 1em",
+
+  fontSize: "var(--fs-lg)",
+
+  img: {
+    transition: "transform 0.3s ease",
+  },
+
+  ":hover": {
+    img: {
+      ":last-of-type": {
+        transform: "translate(.25rem, .25rem)",
+      },
+    },
   },
 })).withComponent("button");
 
@@ -68,14 +88,30 @@ export const ButtonBox = ({
   id,
   className,
   onClick,
+  left,
+  right,
+  bottom,
+  top,
 }: {
   children: React.ReactNode;
   id?: string;
   className?: string;
   onClick?: () => void;
+  left?: string;
+  right?: string;
+  bottom?: string;
+  top?: string;
 }) => {
   return (
-    <StyledButtonBox id={id} className={className} onClick={onClick}>
+    <StyledButtonBox
+      id={id}
+      className={className}
+      onClick={onClick}
+      left={left}
+      right={right}
+      bottom={bottom}
+      top={top}
+    >
       <div className={className}>{children}</div>
       <img src="/assets/components/boxSVGs/box-front.svg" role="presentation" />
       <img src="/assets/components/boxSVGs/box-back.svg" role="presentation" />

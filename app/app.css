@@ -89,9 +89,13 @@ small {
 
         background-color: var(--font-dark);
         color: white;
+        font-family: cabin;
+        font-size: var(--fs-sm);
+        font-weight: initial;
+
         padding: 4px 8px;
         border-radius: 4px;
-        font-size: var(--fs-sm);
+
         opacity: 0;
         visibility: hidden;
         transition:
@@ -103,7 +107,8 @@ small {
         }
     }
 
-    &:hover .tooltip-text {
+    &:hover .tooltip-text,
+    &:focus .tooltip-text {
         opacity: 1;
         visibility: visible;
     }

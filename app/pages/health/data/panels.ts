@@ -82,7 +82,8 @@ export const panels: Record<string, PanelType> = {
   "panel-8": {
     panelBackground: "/assets/scenes/health/background.avif",
     panelForeground: "/assets/scenes/health/panel 1-1.avif",
-    dialogue: "Yeah, it's fifteen. <span class='wide'>Fifteen!</span> <small>Absurd...</small>",
+    dialogue:
+      "<span class='tooltip'>Yeah, it's fifteen. <span class='wide'>Fifteen!</span><span class='tooltip-text'>Based on a report by Murthy (2023) which highlights the health impacts of loneliness on physical health.</span></span> <small>Absurd...</small>",
     playSound: "/assets/audio/scenes/health/gasp.opus",
   },
   "panel-9": {

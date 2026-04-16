@@ -69,10 +69,13 @@ const Section = styled.section((props) => ({
     fontFamily: '"Gamja Flower", handwriting',
     fontSize: "var(--font-size-xxl)",
     fontWeight: "bold",
-    color: "var(--font-dark)",
+    color: "white",
     position: "absolute",
-    top: "5%",
-    left: "5%",
+    bottom: "5%",
+    right: "5%",
+    zIndex: 25,
+    background: "var(--font-dark)",
+    padding: ".5rem 1rem",
   },
 }));
 

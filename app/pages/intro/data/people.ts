@@ -1,4 +1,4 @@
-import type { Person } from "../../../globals/types/Person";
+import type { Person } from "~/globals/types/Person";
 
 export const people: Person[] = [
   {
@@ -25,6 +25,7 @@ export const people: Person[] = [
     height: "16rem",
     imgsrc: "/assets/scenes/intro/people/hijabi.avif",
     name: "Character wearing a hijab",
+    route: "/unreliable",
   },
   {
     left: "40%",
@@ -49,7 +50,7 @@ export const people: Person[] = [
     height: "20rem",
     imgsrc: "/assets/scenes/intro/people/puffer.avif",
     name: "Character with a puffer coat",
-    route: "/",
+    route: "/disconnecting",
   },
   {
     left: "26%",

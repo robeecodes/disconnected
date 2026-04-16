@@ -2,34 +2,6 @@ import { CigPack } from "./CigPack";
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 
-const CigActivityStyles = styled.div({
-  aspectRatio: "9 / 16",
-  width: "16rem",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  zIndex: 5,
-
-  fontFamily: '"Gamja Flower", handwriting',
-  fontSize: ".8rem",
-
-  textAlign: "center",
-
-  ul: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-    display: "flex",
-    gap: "1rem",
-  },
-
-  button: {
-    fontFamily: '"Gamja Flower", handwriting',
-    fontSize: "2rem",
-  },
-});
-
 export const CigActivity = ({ handleContinue }: { handleContinue: (panel: string) => void }) => {
   const [cigCount, setCigCount] = useState(0);
 
@@ -52,8 +24,17 @@ export const CigActivity = ({ handleContinue }: { handleContinue: (panel: string
   };
 
   return (
-    <CigActivityStyles>
-      <h2>Loneliness is as bad as smoking how many cigarettes per day?</h2>
+    <Section>
+      <h2>
+        Loneliness is as bad as smoking how many{" "}
+        <span className="tooltip" tabIndex={0}>
+          cigarettes
+          <span className="tooltip-text">
+            For reference, even smoking one cigarette per day increases the risk of heart disease (Johnson, 2018).
+          </span>
+        </span>{" "}
+        per day?
+      </h2>
       <CigPack cigCount={cigCount} />
       <ul>
         <li>
@@ -67,6 +48,37 @@ export const CigActivity = ({ handleContinue }: { handleContinue: (panel: string
         </li>
       </ul>
       <button onClick={() => handleContinue(getNextPanel())}>Confirm</button>
-    </CigActivityStyles>
+    </Section>
   );
 };
+
+const Section = styled.section({
+  position: "absolute",
+  aspectRatio: "9 / 16",
+  height: "50svh",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "space-between",
+
+  fontFamily: '"Gamja Flower", handwriting',
+
+  textAlign: "center",
+
+  h2: {
+    fontSize: "var(--fs-sm)",
+  },
+
+  ul: {
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+    display: "flex",
+    gap: "1rem",
+  },
+
+  button: {
+    fontFamily: '"Gamja Flower", handwriting',
+    fontSize: "2rem",
+  },
+});

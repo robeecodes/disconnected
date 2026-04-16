@@ -58,41 +58,19 @@ export const Scene = ({ panels, storyId }: { panels: Record<string, PanelType>; 
         onOptionSelect={handleOptionSelect}
         activity={panels[Object.keys(panels)[currentPanelIndex]].activity}
         playSound={panels[Object.keys(panels)[currentPanelIndex]].playSound}
+        foregroundAnimation={panels[Object.keys(panels)[currentPanelIndex]].foregroundAnimation}
         handleContinue={handleContinue}
       />
       {!panels[Object.keys(panels)[currentPanelIndex]].options &&
         !panels[Object.keys(panels)[currentPanelIndex]].activity && (
-          <ContinueButton onClick={() => handleContinue(panels[Object.keys(panels)[currentPanelIndex]].nextPanel)}>
+          <ButtonBox
+            right="10%"
+            bottom="5%"
+            onClick={() => handleContinue(panels[Object.keys(panels)[currentPanelIndex]].nextPanel)}
+          >
             Continue
-          </ContinueButton>
+          </ButtonBox>
         )}
     </>
   );
 };
-
-const ContinueButton = styled(ButtonBox)((props) => ({
-  position: "fixed",
-  bottom: "5%",
-  right: "10%",
-
-  width: "min-content",
-  fontFamily: "Gamja Flower",
-  fontSize: "var(--fs-lg)",
-  padding: ".5rem 2rem",
-
-  background: "none",
-  border: "none",
-  color: "var(--font-dark)",
-
-  img: {
-    transition: "transform 0.3s ease",
-  },
-
-  ":hover": {
-    img: {
-      ":last-of-type": {
-        transform: "translate(.25rem, .25rem)",
-      },
-    },
-  },
-}));

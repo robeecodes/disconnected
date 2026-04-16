@@ -10,6 +10,7 @@ import { mailType } from "../types/mailType";
 
 export default function GameCanvas(props: { onLoseLife: Function; currentLives: number }) {
   const [canvasRef, setCanvasRef] = useState<RefObject<HTMLCanvasElement> | null>(null);
+  const parentRef = useRef(document.querySelector("#abuse-game"));
   const [spawnInterval, setSpawnInterval] = useState(5000);
 
   const mails: RefObject<Array<Mail>> = useRef([]);
@@ -38,9 +39,9 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
   const binSize = { width: 48, height: 56 };
 
   const draw = (ctx: any) => {
-    if (ctx.canvas.width !== canvasSize.width) {
-      ctx.canvas.width = canvasSize.width;
-      ctx.canvas.height = canvasSize.height;
+    if (ctx.canvas.width !== parentRef.current?.clientWidth) {
+      ctx.canvas.width = parentRef.current?.clientWidth;
+      ctx.canvas.height = parentRef.current?.clientHeight;
     }
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 

@@ -27,6 +27,7 @@ const StyledSpeechBubble = styled.div((props) => ({
   minWidth: "16rem",
 
   textAlign: "center",
+  zIndex: 25,
 
   " > div": {
     position: "relative",
