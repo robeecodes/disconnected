@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { GlobalContext } from "~/contexts/GlobalContext";
 import { people } from "../data/people";
 import { PersonButton } from "../components/PersonButton";
+import { Box } from "~/globals/components/Box";
 
 export const MainHub = () => {
   const { globalState, setGlobalState } = useContext(GlobalContext);
@@ -31,6 +32,18 @@ export const MainHub = () => {
             <img src={item.imgsrc} alt={item.name} />
           </PersonButton>
         ),
+      )}
+      {globalState.seenStories.length === peopleToDisplay.length && (
+        <Box>
+          <div style={{ width: "auto", aspectRatio: "16/9", padding: "2rem" }}>
+            <h3>Thank you for exploring all the stories!</h3>
+            <p>I hope you enjoyed your time here learning more about loneliness and social media usage.</p>
+            <p>
+              Full project source code and credits is available on{" "}
+              <a href="https://github.com/robeecodes/disconnected">GitHub</a>.
+            </p>
+          </div>
+        </Box>
       )}
     </Section>
   );

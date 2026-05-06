@@ -1,11 +1,13 @@
 import Mail from "../models/Mail";
 
+// Function to manage the creation of new mails to drop
 export const spawnMail = (canvasSize: { width: number; height: number }, minSpeed: number, mails: Array<Mail>) => {
   const position = { x: Math.random() * canvasSize.width, y: -100 };
   const speed = minSpeed;
   mails.push(new Mail(position, speed));
 };
 
+// Function to check if two objects are colliding. Used to check the collision of the bin and the mail.
 export const checkCollision = (
   a: { width: number; height: number; x: number; y: number },
   b: { width: number; height: number; x: number; y: number },

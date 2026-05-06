@@ -5,10 +5,12 @@ import styled from "@emotion/styled";
 export const CigActivity = ({ handleContinue }: { handleContinue: (panel: string) => void }) => {
   const [cigCount, setCigCount] = useState(0);
 
+  // Animate the first cigarette on mount
   useEffect(() => {
     setCigCount(1);
   }, []);
 
+  // Go to next panel based on user input
   const getNextPanel = () => {
     if (cigCount <= 10) {
       return "panel-7-1";

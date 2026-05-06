@@ -1,3 +1,6 @@
+// Based on snippet from Josh Comeau (2025) https://www.joshwcomeau.com/snippets/react-hooks/use-mouse-position/ - Refer to README
+// Handles detection of mouse/touch for mobile
+
 import React, { useEffect, useState } from "react";
 import type { RefObject } from "react";
 
@@ -24,9 +27,11 @@ const useMousePosition = (canvas: RefObject<HTMLCanvasElement> | null) => {
     };
 
     window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("touchmove", updateMousePosition);
 
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("touchmove", updateMousePosition);
     };
   }, []);
 

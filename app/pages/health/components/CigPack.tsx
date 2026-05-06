@@ -7,6 +7,7 @@ gsap.registerPlugin(useGSAP);
 
 import styled from "@emotion/styled";
 
+// Code to animate and position cigarettes
 export const CigPack = ({ cigCount }: { cigCount: number }) => {
   const cigContainer = useRef<HTMLDivElement>(null);
   const cigRefs = useRef([]);

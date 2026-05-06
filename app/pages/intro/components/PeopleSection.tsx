@@ -95,9 +95,9 @@ const Section = styled.section({
     position: "absolute",
     top: 0,
     left: 0,
-    width: "auto",
+    width: "100svw",
     height: "100svh",
-    objectFit: "fill",
+    objectFit: "cover",
     zIndex: -1,
   },
 

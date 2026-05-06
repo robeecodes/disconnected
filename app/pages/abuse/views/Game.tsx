@@ -8,6 +8,7 @@ import Mail from "../models/Mail";
 import { checkCollision, spawnMail } from "../controllers/GameController";
 import { mailType } from "../types/mailType";
 
+// Handles the core gameplay loop
 export default function GameCanvas(props: { onLoseLife: Function; currentLives: number }) {
   const [canvasRef, setCanvasRef] = useState<RefObject<HTMLCanvasElement> | null>(null);
   const parentRef = useRef(document.querySelector("#abuse-game"));
@@ -24,6 +25,7 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
 
   let pos: { x: number; y: number };
 
+  // Spawn mail at decreasing intervals (so they start to appear faster)
   useEffect(() => {
     const interval = setInterval(() => {
       spawnMail(canvasSize, minSpeed, mails.current!);
@@ -38,6 +40,7 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
 
   const binSize = { width: 48, height: 56 };
 
+  // Draw function to draw the bin and mail positions
   const draw = (ctx: any) => {
     if (ctx.canvas.width !== parentRef.current?.clientWidth) {
       ctx.canvas.width = parentRef.current?.clientWidth;
@@ -48,9 +51,11 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
     ctx.fillStyle = "#000000";
     ctx.fillRect(pos.x, pos.y + ctx.canvas.height - 96, binSize.width, binSize.height);
 
+    // Move each mail dowwards
     mails.current?.forEach((mail) => {
       mail.move();
 
+      // Delete mails which have gone off screen
       if (mail.position.y > canvasSize.height) {
         const idx: number | undefined = mails.current?.indexOf(mail);
         if (idx) mails.current?.splice(idx, 1);
@@ -63,6 +68,8 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
 
       ctx.fillStyle = mail.colour;
       ctx.fillRect(mail.position.x, mail.position.y, 48, 32);
+
+      // Check for collisions between the mail and the bin
       const coll = checkCollision(
         {
           width: binSize.width,
@@ -78,11 +85,13 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
         },
       );
 
+      // Remove any mail that has been collided with
       if (coll) {
         const idx: number | undefined = mails.current?.indexOf(mail);
         if (idx) mails.current?.splice(idx, 1);
         if (idx === 0) mails.current?.shift();
 
+        // Lose life if caught a friendly mail
         if (mail.mailType === mailType.Friendly) {
           props.onLoseLife();
         }

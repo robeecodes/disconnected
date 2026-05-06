@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import type { PanelType } from "../types/PanelType";
 
+// Preload next panel images to improve performance
 export const useImagePrefetch = (panels: Record<string, PanelType>, currentPanelId: number) => {
   useEffect(() => {
     const panelKeys = Object.keys(panels);

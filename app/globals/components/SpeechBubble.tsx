@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const SpeechBubble = ({ dialogue, id }: { dialogue: string; id?: string }) => {
+export const SpeechBubble = ({ dialogue, id, flip }: { dialogue: string; id?: string; flip?: boolean }) => {
   return (
     <StyledSpeechBubble id={id}>
       <div dangerouslySetInnerHTML={{ __html: dialogue }}></div>

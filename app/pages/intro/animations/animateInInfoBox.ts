@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Makes the info box appear
 export const animateInInfoBox = () => {
   gsap.set("#infoBox", {
     autoAlpha: 0,

@@ -70,7 +70,8 @@ export const panels: Record<string, PanelType> = {
   "panel-7": {
     panelBackground: "/assets/scenes/disconnecting/background.avif",
     panelForeground: "/assets/scenes/disconnecting/panel 1-1.avif",
-    dialogue: "Social media’s pretty fun when I’m <em>actually</em> using it for something",
+    dialogue:
+      "Social media’s pretty fun when I’m <span class='tooltip'><em>actually</em> using it for something<span class='tooltip-text'></span></span>",
   },
   "panel-8": {
     panelBackground: "/assets/scenes/disconnecting/background.avif",

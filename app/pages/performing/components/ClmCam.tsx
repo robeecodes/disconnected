@@ -41,6 +41,7 @@ const CamSection = styled.div({
   },
 });
 
+// Set up clmtrackr cam
 export const ClmCam = () => {
   let faceTracker: tracker;
   const width = 500;
@@ -80,6 +81,7 @@ export const ClmCam = () => {
     ctx.canvas.height = height;
     ctx.clearRect(0, 0, width, height);
 
+    // Apply filter when active
     if (!applyFilter) return;
     if (canvasRef.current && positions && positions.length > 0) {
       const leftX = positions[20][0];
@@ -126,6 +128,7 @@ export const ClmCam = () => {
         </li>
       </ul>
       <CamSection>
+        {/*Webcam component with filter overlay made with react-webcam*/}
         <Webcam
           ref={webcamRef}
           mirrored

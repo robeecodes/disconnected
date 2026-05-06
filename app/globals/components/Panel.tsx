@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { useSound } from "../hooks/useSound";
 import { useGSAP } from "@gsap/react";
 
+// Displays the contents of each panel
 export const Panel = ({
   panelBackground,
   panelForeground,
@@ -30,6 +31,7 @@ export const Panel = ({
     }
   }, [playSound]);
 
+  // Play any animations
   useGSAP(() => {
     if (Array.isArray(foregroundAnimation)) {
       foregroundAnimation.forEach((anim, idx) => {
@@ -53,7 +55,7 @@ export const Panel = ({
           ))}
         </div>
       ) : (
-        <img id="foreground" src={panelForeground} alt="foreground" />
+        <img id="foreground" src={panelForeground} alt="" />
       )}
       {dialogue && <SpeechBubble id="bubble" dialogue={dialogue}></SpeechBubble>}
       {options && (

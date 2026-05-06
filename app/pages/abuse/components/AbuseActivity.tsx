@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 import Game from "../views/Game";
 import Instructions from "../views/Instructions";
+import { GameOver } from "../views/GameOver";
 
 export default function AbuseActivity({ handleContinue }: { handleContinue: () => void }) {
   const [view, setView] = useState(gameViews.Instructions);
@@ -12,10 +13,6 @@ export default function AbuseActivity({ handleContinue }: { handleContinue: () =
   useEffect(() => {
     if (lives === 0) {
       setView(gameViews.GameOver);
-      const timer = setTimeout(() => {
-        handleContinue();
-      }, 3000);
-      return () => clearTimeout(timer);
     }
   }, [lives]);
 
@@ -24,7 +21,7 @@ export default function AbuseActivity({ handleContinue }: { handleContinue: () =
       <Section id="abuse-game">
         {view === gameViews.Gameplay && <Game onLoseLife={() => setLives(lives - 1)} currentLives={lives} />}
         {view === gameViews.Instructions && <Instructions playGame={() => setView(gameViews.Gameplay)} />}
-        {view === gameViews.GameOver && <p>GAME OVER</p>}
+        {view === gameViews.GameOver && <GameOver progress={() => handleContinue()} />}
       </Section>
     </>
   );

@@ -26,6 +26,10 @@ html {
     color: var(--font-dark);
 }
 
+body {
+    overflow-x: hidden;
+}
+
 p {
     font-size: var(--fs-base);
 

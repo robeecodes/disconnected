@@ -1,5 +1,6 @@
 import { mailType } from "../types/mailType";
 
+// Class for the mail which drops to help track position and type
 export default class Mail {
   mailType: mailType;
   position: { x: number; y: number };
@@ -21,6 +22,7 @@ export default class Mail {
     this.colour = this.mailType === mailType.Unfriendly ? "red" : "green";
   }
 
+  // Mails will drop at the specified speed
   move() {
     this.position.y += this.speed;
   }

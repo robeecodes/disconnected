@@ -1,8 +1,6 @@
 import { useState, useRef, useContext } from "react";
 import { useSound } from "../hooks/useSound";
 
-import styled from "@emotion/styled";
-
 import { useNavigate } from "react-router";
 
 import type { PanelType } from "../types/PanelType";
@@ -24,6 +22,7 @@ export const Scene = ({ panels, storyId }: { panels: Record<string, PanelType>; 
 
   const navigate = useNavigate();
 
+  // Controller for continuing to the next panel
   const handleContinue = (panelId?: string) => {
     if (panelId) {
       const index: number = Object.keys(panels).indexOf(panelId);
@@ -41,6 +40,7 @@ export const Scene = ({ panels, storyId }: { panels: Record<string, PanelType>; 
     }
   };
 
+  // Controller for option selection
   const handleOptionSelect = (optionIndex: number) => {
     const panel = panels[Object.keys(panels)[currentPanelIndex]];
     if (panel.options && panel.options[optionIndex].nextPanelId) {

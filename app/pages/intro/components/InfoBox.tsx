@@ -47,7 +47,7 @@ export const InfoBox = ({
   return (
     <InfoStyledBox id={id}>
       {children}
-      <button onClick={updateInfo}>&rarr;</button>
+      <button onClick={updateInfo}>Continue &rarr;</button>
     </InfoStyledBox>
   );
 };

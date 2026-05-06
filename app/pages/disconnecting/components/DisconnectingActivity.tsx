@@ -4,14 +4,17 @@ import styled from "@emotion/styled";
 export const DisconnectingActivity = ({ handleContinue }: { handleContinue: (panel: string) => void }) => {
   const [time, setTime] = useState(22);
 
+  // Increase the time with midnight wrap
   const handleIncrement = () => {
     setTime((prev) => (prev + 1) % 24);
   };
 
+  // Decrease the time with midnight wrap
   const handleDecrement = () => {
     setTime((prev) => (prev - 1 + 24) % 24);
   };
 
+  // Choose next panel based on user input
   const getNextPanel = () => {
     if (time >= 22 && (time <= 23 || time === 0)) {
       return "panel-10-1";
