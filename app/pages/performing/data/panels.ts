@@ -66,7 +66,8 @@ export const panels: Record<string, PanelType> = {
   "panel-9": {
     panelBackground: "/assets/scenes/performing/background.avif",
     panelForeground: "/assets/scenes/performing/panel-4.avif",
-    dialogue: "Although... I worry a lot. Like, what if I wear or say the wrong thing?",
+    dialogue:
+      "Although... I worry a lot. Like, <span class='tooltip'>what if I wear or say the wrong thing?<span class='tooltip-text'>'Virtual social users tended to present themselves as more unreal and have less trust.' - Liu and Tong, 2024</span></span>",
     playSound: "/assets/audio/scenes/performing/embarrassed.opus",
   },
   "panel-10": {

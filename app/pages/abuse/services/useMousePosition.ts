@@ -24,9 +24,9 @@ const useMousePosition = (canvas: RefObject<HTMLCanvasElement> | null) => {
 
       if (ev.touches) {
         const touch = ev.touches[0];
-        [x, y] = [touch.clientX, touch.clientY];
+        [x, y] = [touch.clientX - rectRef.current.left - 16, 16];
       } else {
-        [x, y] = [ev.clientX, ev.clientY];
+        [x, y] = [ev.clientX - rectRef.current.left - 16, 16];
       }
 
       setMousePosition({ x, y });

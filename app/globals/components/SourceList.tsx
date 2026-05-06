@@ -46,9 +46,9 @@ export const SourceList = ({
             </li>
             <li>
               <a href="https://https://dx.plos.org/10.1371/journal.pone.0312522">
-                Liu, L. (2024) Research on the relationship between virtual social interaction and the degree of
-                loneliness based on algorithm matching technologies: A quantitative analysis on the SOUL APP-A virtual
-                social software for strangers. <em>PLOS ONE</em> [online]. 19 (12).
+                Liu, L. and Tong, Y. (2024) Research on the relationship between virtual social interaction and the
+                degree of loneliness based on algorithm matching technologies: A quantitative analysis on the SOUL APP-A
+                virtual social software for strangers. <em>PLOS ONE</em> [online]. 19 (12). [Accessed 20 August 2025].
               </a>
             </li>
             <li>

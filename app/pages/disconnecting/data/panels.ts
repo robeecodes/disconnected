@@ -70,13 +70,13 @@ export const panels: Record<string, PanelType> = {
   "panel-7": {
     panelBackground: "/assets/scenes/disconnecting/background.avif",
     panelForeground: "/assets/scenes/disconnecting/panel 1-1.avif",
-    dialogue:
-      "Social media’s pretty fun when I’m <span class='tooltip'><em>actually</em> using it for something<span class='tooltip-text'></span></span>",
+    dialogue: "Social media’s pretty fun when I’m <em>actually</em> using it for something.",
   },
   "panel-8": {
     panelBackground: "/assets/scenes/disconnecting/background.avif",
     panelForeground: "/assets/scenes/disconnecting/panel 1-3.avif",
-    dialogue: "I used to just hop online for hours when I went to bed.",
+    dialogue:
+      "I used to just <span class='tooltip'>hop online for hours<span class='tooltip-text'>Using social media for more than two hours a day led to higher reports of social isolation. Murthy, 2023</span></span> when I went to bed.",
     playSound: "/assets/audio/scenes/disconnecting/sigh.opus",
   },
   "panel-9": {
