@@ -44,7 +44,7 @@ const Section = styled.section`
 
   position: relative;
 
-  overflow-y: auto;
+  /*overflow-y: auto;*/
   & header {
     display: flex;
     flex-direction: column;

@@ -26,8 +26,9 @@ html {
     color: var(--font-dark);
 }
 
-body {
-    overflow-x: hidden;
+body,
+section {
+    overflow-x: hidden !important;
 }
 
 p {
