@@ -12,7 +12,7 @@ import { mailType } from "../types/mailType";
 export default function GameCanvas(props: { onLoseLife: Function; currentLives: number }) {
   const [canvasRef, setCanvasRef] = useState<RefObject<HTMLCanvasElement> | null>(null);
   const parentRef = useRef(document.querySelector("#abuse-game"));
-  const [spawnInterval, setSpawnInterval] = useState(5000);
+  const [spawnInterval, setSpawnInterval] = useState(2000);
 
   const mails: RefObject<Array<Mail>> = useRef([]);
 
@@ -48,8 +48,19 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
     }
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    ctx.fillStyle = "#000000";
+    // Draw bin with lid and decorative elements
+    ctx.fillStyle = "#444444";
     ctx.fillRect(pos.x, pos.y + ctx.canvas.height - 96, binSize.width, binSize.height);
+
+    // Add decorative lines (like bin texture)
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 2; i++) {
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y + ctx.canvas.height - 96 + i * 20);
+      ctx.lineTo(pos.x + binSize.width, pos.y + ctx.canvas.height - 96 + i * 20);
+      ctx.stroke();
+    }
 
     // Move each mail dowwards
     mails.current?.forEach((mail) => {
@@ -68,6 +79,29 @@ export default function GameCanvas(props: { onLoseLife: Function; currentLives: 
 
       ctx.fillStyle = mail.colour;
       ctx.fillRect(mail.position.x, mail.position.y, 48, 32);
+
+      // Draw mail lines
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(mail.position.x, mail.position.y);
+      ctx.lineTo(mail.position.x + 48, mail.position.y);
+      ctx.moveTo(mail.position.x, mail.position.y + 16);
+      ctx.lineTo(mail.position.x + 48, mail.position.y + 16);
+      ctx.moveTo(mail.position.x, mail.position.y + 32);
+      ctx.lineTo(mail.position.x + 48, mail.position.y + 32);
+      ctx.stroke();
+
+      // Draw emoji based on mail type
+      if (mail.mailType === mailType.Unfriendly) {
+        // Angry emoji
+        ctx.font = "24px Arial";
+        ctx.fillText("😠", mail.position.x + 8, mail.position.y + 24);
+      } else if (mail.mailType === mailType.Friendly) {
+        // Smiley emoji
+        ctx.font = "24px Arial";
+        ctx.fillText("😊", mail.position.x + 8, mail.position.y + 24);
+      }
 
       // Check for collisions between the mail and the bin
       const coll = checkCollision(

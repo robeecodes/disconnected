@@ -27,16 +27,7 @@ export const CigActivity = ({ handleContinue }: { handleContinue: (panel: string
 
   return (
     <Section>
-      <h2>
-        Loneliness is as bad as smoking how many{" "}
-        <span className="tooltip" tabIndex={0}>
-          cigarettes
-          <span className="tooltip-text">
-            For reference, even smoking one cigarette per day increases the risk of heart disease (Johnson, 2018).
-          </span>
-        </span>{" "}
-        per day?
-      </h2>
+      <h2>Loneliness is as bad as smoking how many cigarettes per day?</h2>
       <CigPack cigCount={cigCount} />
       <ul>
         <li>

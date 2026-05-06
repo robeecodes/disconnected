@@ -35,7 +35,7 @@ export const MainHub = () => {
       )}
       {globalState.seenStories.length === peopleToDisplay.length && (
         <Box>
-          <div style={{ width: "auto", aspectRatio: "16/9", padding: "2rem" }}>
+          <div style={{ minWidth: "50svw", aspectRatio: "16/9", padding: "2rem" }}>
             <h3>Thank you for exploring all the stories!</h3>
             <p>I hope you enjoyed your time here learning more about loneliness and social media usage.</p>
             <p>
