@@ -20,10 +20,16 @@ const useMousePosition = (canvas: RefObject<HTMLCanvasElement> | null) => {
 
   useEffect(() => {
     const updateMousePosition = (ev: any) => {
-      setMousePosition({
-        x: ev.clientX - rectRef.current.left - 16,
-        y: 16,
-      });
+      let x, y;
+
+      if (ev.touches) {
+        const touch = ev.touches[0];
+        [x, y] = [touch.clientX, touch.clientY];
+      } else {
+        [x, y] = [ev.clientX, ev.clientY];
+      }
+
+      setMousePosition({ x, y });
     };
 
     window.addEventListener("mousemove", updateMousePosition);
