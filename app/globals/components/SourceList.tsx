@@ -39,12 +39,6 @@ export const SourceList = ({
               </a>
             </li>
             <li>
-              <a href="https://www.bmj.com/lookup/doi/10.1136/bmj.k167">
-                Johnson, K.C. (2018) Just one cigarette a day seriously elevates cardiovascular risk. <em>BMJ</em>{" "}
-                [online].
-              </a>
-            </li>
-            <li>
               <a href="https://https://dx.plos.org/10.1371/journal.pone.0312522">
                 Liu, L. and Tong, Y. (2024) Research on the relationship between virtual social interaction and the
                 degree of loneliness based on algorithm matching technologies: A quantitative analysis on the SOUL APP-A
