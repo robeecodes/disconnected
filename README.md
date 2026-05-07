@@ -55,10 +55,11 @@ References for any third party assets used. For each asset the format is as foll
   - **whatever.opus** | voiceofruthie (2025) *Whatever!. Pixabay* [download] [Accessed 06 April 2026].
 
 ### Code
+- **app/pages/abuse/models/Canvas.tsx** | Miranda, L. (2020) *Canvas with React.js*. Available from: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258 [Accessed 06 May 2026].
 - **app/pages/abuse/services/useCanvas.ts** | Miranda, L. (2020) *Canvas with React.js*. Available from: https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258 [Accessed 06 May 2026].
 - **app/pages/abuse/services/useMousePosition.ts** | Comeau, J. (2025) *useMousePosition*. Available from: https://www.joshwcomeau.com/snippets/react-hooks/use-mouse-position/ [Accessed 06 May 2026].
 
-## Fonts
+### Fonts
 - **Gamja Flower** | YoonDesign Inc. (no date) *Gamja Flower*. Available from: https://fonts.bunny.net/family/gamja-flower [Accessed 06 May 2026].
 - **Genos** | The Genos Project Authors. (2011) *Genos*. Available from: https://fonts.bunny.net/family/genos [Accessed 06 May 2026].
 
